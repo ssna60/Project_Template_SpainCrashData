@@ -1,0 +1,29 @@
+# References {.unnumbered}
+
+::: {#refs}
+:::
+
+
+
+<!--  to generate a citation entry for BibTeX, you can pass the returned object of citation() to toBibtex(), e.g. toBibtex(citation("xaringan")). Then  copy the output to a .bib file and add a unique citation key -->
+
+<!-- https://bookdown.org/yihui/rmarkdown-cookbook/write-bib.html -->
+
+\newpage
+
+# Online appendix {.unnumbered}
+
+## Attach R session info in appendix {#sec-rsessioninfo}
+
+Since R and R packages are constantly evolving you might want to add the R session info that contains information on the R version as well as the packages that are loaded.
+
+```{r echo=FALSE}
+print(sessionInfo(), local = FALSE)
+```
+
+## All the code in the paper
+
+To simply attach all the code you used in the PDF file in the appendix see the R chunk in the underlying `.qmd` file:
+
+```{r, ref.label=knitr::all_labels(),echo=TRUE,eval=FALSE}
+```

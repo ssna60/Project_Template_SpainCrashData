@@ -1,0 +1,48 @@
+# Introduction {#sec-Introduction}
+
+I am writing this text for my dear friend and colleague Mr. Jafari Nasab for two purposes:
+
+1.  This document was written through a Quarto project in R Studio. This document itself will be the apparent basis of our future research. There are things to learn that you will learn by carefully going through the details of the documents in the project folder. Of course, we will discuss it at the right time.
+
+2.  Ideas for future research are suggested and an example is implemented.
+
+If the terms "machine learning" and "crash severity prediction" or similar items are searched on Mendeley's website ([link](https://www.mendeley.com/)), we will find that firstly, a large amount of articles have been written in these fields, and secondly, this amount of articles has increased in recent years. I have downloaded and reviewed these articles more or less in recent months and created an Excel file for reference management. Through the investigations, I realized that the articles often focus on a part of the whole data, which I show below with my own division:
+
+-   Location
+    -   Freeway
+    -   Highway-rail crossing
+    -   Intersection
+    -   Workzone
+-   Factor
+    -   Age
+    -   Time-of-day
+    -   Alcohol
+    -   Seat belt
+    -   At-fault
+    -   Gender
+    -   Visibility condition
+    -   Weather conditions
+-   Type
+    -   Car-truck
+    -   Cross-median
+    -   Fixed object
+    -   Hazardous material
+    -   Head on
+    -   Rear-end
+    -   Rollover
+    -   Hit and run
+    -   Multi vehicles
+    -   Single vehicle
+    -   Red light running crashes
+    -   Roadway departure
+-   User
+    -   Cyclists
+    -   Pedestrian
+    -   Motorcycle
+    -   Large truck
+    -   Teen drivers
+    -   Children and adolescents involved
+
+IN @sec-Literature-Reveiw, these items are explained in more detail. I believe that in order to be able to publish a high-quality research paper with Spanish accident data, each of these divisions can be the basis of our research. Therefore, to begin with, we should focus our attention on only one part and while carefully studying the research literature and related articles, extract the desired data from the overall raw data. Then we will gradually advance the research work by analyzing the extracted data and building a machine learning model and interpreting it as much as possible. Obviously, as a research work starts, dozens of small and big ideas are brainstormed. Maybe some of those ideas will be implemented in the research and finally at some point of time the article will be finalized with the agreement of the authors and the research will end and the final output will be prepared for submission to the target journal.
+
+The text is organized in such a way that after the introduction, the research literature is reviewed in @sec-Literature-Reveiw. In @sec-Method, the method is described. Then the results are presented in @sec-Results. In @sec-Discussion, the results are discussed, and finally, in @sec-Conclosion, conclusions are made.

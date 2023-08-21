@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>introduction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="1Introduction_files/libs/clipboard/clipboard.min.js"></script>
+<script src="1Introduction_files/libs/quarto-html/quarto.js"></script>
+<script src="1Introduction_files/libs/quarto-html/popper.min.js"></script>
+<script src="1Introduction_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="1Introduction_files/libs/quarto-html/anchor.min.js"></script>
+<link href="1Introduction_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="1Introduction_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="1Introduction_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="1Introduction_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="1Introduction_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="sec-Introduction" class="level1">
+<h1>Introduction</h1>
+<p>If the terms “machine learning” and “crash severity prediction” or similar items are searched on Mendeley’s website (<a href="https://www.mendeley.com/">link</a>), we will find that firstly, a large amount of articles have been written in these fields, and secondly, this amount of articles has increased in recent years. I have downloaded and reviewed these articles more or less in recent months and created an Excel file for reference management. Through the investigations, I realized that the articles often focus on a part of the whole data, which I show below with my own division:</p>
+<ul>
+<li>Location
+<ul>
+<li>Freeway <span class="citation" data-cites="Wen2023 Li2018 Li2020">(<a href="#ref-Wen2023" role="doc-biblioref">Wen et al. 2023</a>; <a href="#ref-Li2018" role="doc-biblioref">N. Li, Park, and Lambert 2018</a>; <a href="#ref-Li2020" role="doc-biblioref">J. Li et al. 2020</a>)</span></li>
+<li>Highway-rail crossing <span class="citation" data-cites="Keramati2020 Kutela2023">(<a href="#ref-Keramati2020" role="doc-biblioref">Keramati et al. 2020</a>; <a href="#ref-Kutela2023" role="doc-biblioref">Kutela et al. 2023</a>)</span></li>
+<li>Intersection <span class="citation" data-cites="Russo2023 Sharafeldin2022 Zhu2022 Lin2021">(<a href="#ref-Russo2023" role="doc-biblioref">Russo, Yu, and Smaglik 2023</a>; <a href="#ref-Sharafeldin2022" role="doc-biblioref">Sharafeldin, Farid, and Ksaibati 2022</a>; <a href="#ref-Zhu2022" role="doc-biblioref">S. Zhu 2022</a>; <a href="#ref-Lin2021" role="doc-biblioref">Lin and Fan 2021</a>)</span></li>
+<li>Workzone <span class="citation" data-cites="Dimitrijevic2023 Yu2020 Ghasemzadeh2019">(<a href="#ref-Dimitrijevic2023" role="doc-biblioref">Dimitrijevic, Asadi, and Spasovic 2023</a>; <a href="#ref-Yu2020" role="doc-biblioref">Yu, Zheng, and Ma 2020</a>; <a href="#ref-Ghasemzadeh2019" role="doc-biblioref">Ghasemzadeh and Ahmed 2019</a>)</span></li>
+</ul></li>
+<li>Factor
+<ul>
+<li>age <span class="citation" data-cites="Mafi2018 Lee2023">(<a href="#ref-Mafi2018" role="doc-biblioref">Mafi, AbdelRazig, and Doczy 2018</a>; <a href="#ref-Lee2023" role="doc-biblioref">Lee, Guldmann, and Rabenau 2023</a>)</span></li>
+<li>Time-of-day <span class="citation" data-cites="Behnood2019 Song2021">(<a href="#ref-Behnood2019" role="doc-biblioref">Behnood and Mannering 2019</a>; <a href="#ref-Song2021" role="doc-biblioref">L. Song, Fan, and Li 2021</a>)</span></li>
+<li>alcohol <span class="citation" data-cites="Song2021 Liu2020 Lasota2020 Wu2018 Shyhalla2014">(<a href="#ref-Song2021" role="doc-biblioref">L. Song, Fan, and Li 2021</a>; <a href="#ref-Liu2020" role="doc-biblioref">Liu and Fan 2020</a>; <a href="#ref-Lasota2020" role="doc-biblioref">Lasota et al. 2020</a>; <a href="#ref-Wu2018" role="doc-biblioref">Q. Wu and Zhang 2018</a>; <a href="#ref-Shyhalla2014" role="doc-biblioref">Shyhalla 2014</a>)</span></li>
+<li>seat belt <span class="citation" data-cites="Kim2021 Abay2013">(<a href="#ref-Kim2021" role="doc-biblioref">J. M. Kim et al. 2021</a>; <a href="#ref-Abay2013" role="doc-biblioref">Abay, Paleti, and Bhat 2013</a>)</span></li>
+<li>at-fault <span class="citation" data-cites="Rezapour2020">(<a href="#ref-Rezapour2020" role="doc-biblioref">Rezapour, Nazneen, and Ksaibati 2020</a>)</span></li>
+<li>gender <span class="citation" data-cites="Lee2023 Billah2022 Fu2021 Mafi2018 Amarasingha2014">(<a href="#ref-Lee2023" role="doc-biblioref">Lee, Guldmann, and Rabenau 2023</a>; <a href="#ref-Billah2022" role="doc-biblioref">Billah, Sharif, and Dessouky 2022</a>; <a href="#ref-Fu2021" role="doc-biblioref">Fu, Lee, and Huang 2021</a>; <a href="#ref-Mafi2018" role="doc-biblioref">Mafi, AbdelRazig, and Doczy 2018</a>; <a href="#ref-Amarasingha2014" role="doc-biblioref">Amarasingha and Dissanayake 2014</a>)</span></li>
+<li>visibility condition <span class="citation" data-cites="Harris2023 Li2018">(<a href="#ref-Harris2023" role="doc-biblioref">Harris et al. 2023</a>; <a href="#ref-Li2018" role="doc-biblioref">N. Li, Park, and Lambert 2018</a>)</span></li>
+<li>weather conditions [<span class="citation" data-cites="Naik2016">Naik et al. (<a href="#ref-Naik2016" role="doc-biblioref">2016</a>)</span>; <span class="citation" data-cites="Zhai2019">Zhai et al. (<a href="#ref-Zhai2019" role="doc-biblioref">2019</a>)</span>; <span class="citation" data-cites="Yazdani2021">Yazdani and Nassiri (<a href="#ref-Yazdani2021" role="doc-biblioref">2021</a>)</span>]<span class="citation" data-cites="Sawtelle2023 Ghasemzadeh2019 Zeng2020">(<a href="#ref-Sawtelle2023" role="doc-biblioref">Sawtelle et al. 2023</a>; <a href="#ref-Ghasemzadeh2019" role="doc-biblioref">Ghasemzadeh and Ahmed 2019</a>; <a href="#ref-Zeng2020" role="doc-biblioref">Zeng et al. 2020</a>)</span></li>
+</ul></li>
+<li>Type
+<ul>
+<li>car-truck <span class="citation" data-cites="Zhou2020 Song2023">(<a href="#ref-Zhou2020" role="doc-biblioref">Zhou et al. 2020</a>; <a href="#ref-Song2023" role="doc-biblioref">D. Song et al. 2023</a>)</span></li>
+<li>cross-median <span class="citation" data-cites="Lu2010 Hu2011 Das2018">(<a href="#ref-Lu2010" role="doc-biblioref">Lu et al. 2010</a>; <a href="#ref-Hu2011" role="doc-biblioref">Hu and Donnell 2011</a>; <a href="#ref-Das2018" role="doc-biblioref">Das et al. 2018</a>)</span></li>
+<li>fixed object <span class="citation" data-cites="Holdridge2005 Yan2022">(<a href="#ref-Holdridge2005" role="doc-biblioref">Holdridge, Shankar, and Ulfarsson 2005</a>; <a href="#ref-Yan2022" role="doc-biblioref">Yan et al. 2022</a>)</span></li>
+<li>hazardous material <span class="citation" data-cites="Shen2021 Sun2022 Xing2020 Iranitalab2018 Ahmed2020">(<a href="#ref-Shen2021" role="doc-biblioref">Shen and Wei 2021</a>; <a href="#ref-Sun2022" role="doc-biblioref">Sun et al. 2022</a>; <a href="#ref-Xing2020" role="doc-biblioref">Xing et al. 2020</a>; <a href="#ref-Iranitalab2018" role="doc-biblioref">Iranitalab, Kang, and Khattak 2018</a>; <a href="#ref-Ahmed2020" role="doc-biblioref">Ahmed, Gaweesh, and Ahmed 2020</a>)</span></li>
+<li>head on <span class="citation" data-cites="Liu2020 Kardar2020">(<a href="#ref-Liu2020" role="doc-biblioref">Liu and Fan 2020</a>; <a href="#ref-Kardar2020" role="doc-biblioref">Kardar and Davoodi 2020</a>)</span></li>
+<li>rear-end <span class="citation" data-cites="Mohamed2017 Prajongkha2023 Shao2020 Champahom2020 Yu2020">(<a href="#ref-Mohamed2017" role="doc-biblioref">Mohamed, Mohamed, and Al-Harthi 2017</a>; <a href="#ref-Prajongkha2023" role="doc-biblioref">Prajongkha, Kanitpong, and Jensupakarn 2023</a>; <a href="#ref-Shao2020" role="doc-biblioref">Shao et al. 2020</a>; <a href="#ref-Champahom2020" role="doc-biblioref">Champahom et al. 2020</a>; <a href="#ref-Yu2020" role="doc-biblioref">Yu, Zheng, and Ma 2020</a>)</span></li>
+<li>Rollover <span class="citation" data-cites="Khan2020 Hu2011 Bullard2023 Rezapour2022">(<a href="#ref-Khan2020" role="doc-biblioref">Khan and Vachal 2020</a>; <a href="#ref-Hu2011" role="doc-biblioref">Hu and Donnell 2011</a>; <a href="#ref-Bullard2023" role="doc-biblioref">Bullard et al. 2023</a>; <a href="#ref-Rezapour2022" role="doc-biblioref">Rezapour and Ksaibati 2022</a>)</span></li>
+<li>Hit and run <span class="citation" data-cites="Jiang2021 Zhou2018 Zhu2021 Sivasankaran2022">(<a href="#ref-Jiang2021" role="doc-biblioref">Jiang et al. 2021</a>; <a href="#ref-Zhou2018" role="doc-biblioref">Zhou, Li, and Zhang 2018</a>; <a href="#ref-Zhu2021" role="doc-biblioref">S. Zhu and Wan 2021</a>; <a href="#ref-Sivasankaran2022" role="doc-biblioref">Sivasankaran and Balasubramanian 2022</a>)</span></li>
+<li>multi vehicles <span class="citation" data-cites="Yazdani2021 Wen2023 Ma2023">(<a href="#ref-Yazdani2021" role="doc-biblioref">Yazdani and Nassiri 2021</a>; <a href="#ref-Wen2023" role="doc-biblioref">Wen et al. 2023</a>; <a href="#ref-Ma2023" role="doc-biblioref">Ma et al. 2023</a>)</span></li>
+<li>single vehicle <span class="citation" data-cites="Ma2023 Naik2016 Sivasankaran2021 Roque2021">(<a href="#ref-Ma2023" role="doc-biblioref">Ma et al. 2023</a>; <a href="#ref-Naik2016" role="doc-biblioref">Naik et al. 2016</a>; <a href="#ref-Sivasankaran2021" role="doc-biblioref">Sivasankaran, Rangam, and Balasubramanian 2021</a>; <a href="#ref-Roque2021" role="doc-biblioref">Roque, Jalayer, and Hasan 2021</a>)</span></li>
+<li>red light running crashes <span class="citation" data-cites="Zhang2021 Shaaban2021">(<a href="#ref-Zhang2021" role="doc-biblioref">Zhang et al. 2021</a>; <a href="#ref-Shaaban2021" role="doc-biblioref">Shaaban et al. 2021</a>)</span></li>
+<li>roadway departure <span class="citation" data-cites="Alhasan2018 Peng2012 Yu2021">(<a href="#ref-Alhasan2018" role="doc-biblioref">Alhasan et al. 2018</a>; <a href="#ref-Peng2012" role="doc-biblioref">Peng, Geedipally, and Lord 2012</a>; <a href="#ref-Yu2021" role="doc-biblioref">Yu, Ma, and Shen 2021</a>)</span></li>
+</ul></li>
+<li>User
+<ul>
+<li><p>cyclists <span class="citation" data-cites="Eriksson2022 Boufous2012">(<a href="#ref-Eriksson2022" role="doc-biblioref">Eriksson, Niska, and Forsman 2022</a>; <a href="#ref-Boufous2012" role="doc-biblioref">Boufous et al. 2012</a>)</span></p></li>
+<li><p>pedestrian <span class="citation" data-cites="Zhai2019 Sivasankaran2022 Kim2017 Zafri2020">(<a href="#ref-Zhai2019" role="doc-biblioref">Zhai et al. 2019</a>; <a href="#ref-Sivasankaran2022" role="doc-biblioref">Sivasankaran and Balasubramanian 2022</a>; <a href="#ref-Kim2017" role="doc-biblioref">M. Kim, Kho, and Kim 2017</a>; <a href="#ref-Zafri2020" role="doc-biblioref">Zafri et al. 2020</a>)</span></p></li>
+<li><p>motorcycle <span class="citation" data-cites="Farid2021 Wahab2020 Kitali2022 Salum2019 Rezapour2020 Farid2021 Prajongkha2023">(<a href="#ref-Farid2021" role="doc-biblioref">Farid and Ksaibati 2021</a>, <a href="#ref-Farid2021" role="doc-biblioref">2021</a>; <a href="#ref-Wahab2020" role="doc-biblioref">Wahab and Jiang 2020</a>; <a href="#ref-Kitali2022" role="doc-biblioref">Kitali et al. 2022</a>; <a href="#ref-Salum2019" role="doc-biblioref">Salum et al. 2019</a>; <a href="#ref-Rezapour2020" role="doc-biblioref">Rezapour, Nazneen, and Ksaibati 2020</a>; <a href="#ref-Prajongkha2023" role="doc-biblioref">Prajongkha, Kanitpong, and Jensupakarn 2023</a>)</span></p></li>
+<li><p>large truck <span class="citation" data-cites="Li2020 Azimi2022 Behnood2020 Zhu2011 Azimi2020 Behnood2019 Wu2023 Hosseinzadeh2021 Okafor2022">(<a href="#ref-Li2020" role="doc-biblioref">J. Li et al. 2020</a>; <a href="#ref-Azimi2022" role="doc-biblioref">Azimi et al. 2022</a>, <a href="#ref-Azimi2020" role="doc-biblioref">2020</a>; <a href="#ref-Behnood2020" role="doc-biblioref">Behnood and Al-Bdairi 2020</a>; <a href="#ref-Zhu2011" role="doc-biblioref">X. Zhu and Srinivasan 2011</a>; <a href="#ref-Behnood2019" role="doc-biblioref">Behnood and Mannering 2019</a>; <a href="#ref-Wu2023" role="doc-biblioref">J. Wu et al. 2023</a>; <a href="#ref-Hosseinzadeh2021" role="doc-biblioref">Hosseinzadeh, Moeinaddini, and Ghasemzadeh 2021</a>; <a href="#ref-Okafor2022" role="doc-biblioref">Okafor, Adanu, and Jones 2022</a>)</span></p></li>
+<li><p>teen drivers <span class="citation" data-cites="Duddu2019 Villavicencio2022 Hossain2023">(<a href="#ref-Duddu2019" role="doc-biblioref">Duddu, Kukkapalli, and Pulugurtha 2019</a>; <a href="#ref-Villavicencio2022" role="doc-biblioref">Villavicencio et al. 2022</a>; <a href="#ref-Hossain2023" role="doc-biblioref">Hossain, Zhou, and Sun 2023</a>)</span></p></li>
+<li><p>children and adolescents <span class="citation" data-cites="Theofilatos2021 Rezapour2021">(<a href="#ref-Theofilatos2021" role="doc-biblioref">Theofilatos, Antoniou, and Yannis 2021</a>; <a href="#ref-Rezapour2021" role="doc-biblioref">Rezapour and Ksaibati 2021</a>)</span></p></li>
+</ul></li>
+</ul>
+<p>In some articles, some combination conditions of the above division are used</p>
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Abay2013" class="csl-entry" role="listitem">
+Abay, Kibrom A., Rajesh Paleti, and Chandra R. Bhat. 2013. <span>“The Joint Analysis of Injury Severity of Drivers in Two-Vehicle Crashes Accommodating Seat Belt Use Endogeneity.”</span> <em>Transportation Research Part B: Methodological</em> 50. <a href="https://doi.org/10.1016/j.trb.2013.01.007">https://doi.org/10.1016/j.trb.2013.01.007</a>.
+</div>
+<div id="ref-Ahmed2020" class="csl-entry" role="listitem">
+Ahmed, Irfan U., Sherif M. Gaweesh, and Mohamed M. Ahmed. 2020. <span>“Exploration of Hazardous Material Truck Crashes Onwyoming’s Interstate Roads Using a Novel Hamiltonian Monte Carlo Markov Chain Bayesian Inference.”</span> <em>Transportation Research Record</em> 2674. <a href="https://doi.org/10.1177/0361198120931103">https://doi.org/10.1177/0361198120931103</a>.
+</div>
+<div id="ref-Alhasan2018" class="csl-entry" role="listitem">
+Alhasan, Ahmad, Inya Nlenanya, Omar Smadi, and Cameron A. MacKenzie. 2018. <span>“Impact of Pavement Surface Condition on Roadway Departure Crash Risk in Iowa.”</span> <em>Infrastructures</em> 3. <a href="https://doi.org/10.3390/infrastructures3020014">https://doi.org/10.3390/infrastructures3020014</a>.
+</div>
+<div id="ref-Amarasingha2014" class="csl-entry" role="listitem">
+Amarasingha, Niranga, and Sunanda Dissanayake. 2014. <span>“Gender Differences of Young Drivers on Injury Severity Outcome of Highway Crashes.”</span> <em>Journal of Safety Research</em> 49. <a href="https://doi.org/10.1016/j.jsr.2014.03.004">https://doi.org/10.1016/j.jsr.2014.03.004</a>.
+</div>
+<div id="ref-Azimi2020" class="csl-entry" role="listitem">
+Azimi, Ghazaleh, Alireza Rahimi, Hamidreza Asgari, and Xia Jin. 2020. <span>“Severity Analysis for Large Truck Rollover Crashes Using a Random Parameter Ordered Logit Model.”</span> <em>Accident Analysis and Prevention</em> 135. <a href="https://doi.org/10.1016/j.aap.2019.105355">https://doi.org/10.1016/j.aap.2019.105355</a>.
+</div>
+<div id="ref-Azimi2022" class="csl-entry" role="listitem">
+———. 2022. <span>“Injury Severity Analysis for Large Truck-Involved Crashes: Accounting for Heterogeneity.”</span> In <em>Transportation Research Record</em>. Vol. 2676. <a href="https://doi.org/10.1177/03611981221091562">https://doi.org/10.1177/03611981221091562</a>.
+</div>
+<div id="ref-Behnood2020" class="csl-entry" role="listitem">
+Behnood, Ali, and Nabeel Saleem Saad Al-Bdairi. 2020. <span>“Determinant of Injury Severities in Large Truck Crashes: A Weekly Instability Analysis.”</span> <em>Safety Science</em> 131. <a href="https://doi.org/10.1016/j.ssci.2020.104911">https://doi.org/10.1016/j.ssci.2020.104911</a>.
+</div>
+<div id="ref-Behnood2019" class="csl-entry" role="listitem">
+Behnood, Ali, and Fred Mannering. 2019. <span>“Time-of-Day Variations and Temporal Instability of Factors Affecting Injury Severities in Large-Truck Crashes.”</span> <em>Analytic Methods in Accident Research</em> 23. <a href="https://doi.org/10.1016/j.amar.2019.100102">https://doi.org/10.1016/j.amar.2019.100102</a>.
+</div>
+<div id="ref-Billah2022" class="csl-entry" role="listitem">
+Billah, Khondoker, Hatim O. Sharif, and Samer Dessouky. 2022. <span>“How Gender Affects Motor Vehicle Crashes: A Case Study from San Antonio, Texas.”</span> <em>Sustainability (Switzerland)</em> 14. <a href="https://doi.org/10.3390/su14127023">https://doi.org/10.3390/su14127023</a>.
+</div>
+<div id="ref-Boufous2012" class="csl-entry" role="listitem">
+Boufous, Soufiane, Liz De Rome, Teresa Senserrick, and Rebecca Ivers. 2012. <span>“Risk Factors for Severe Injury in Cyclists Involved in Traffic Crashes in Victoria, Australia.”</span> <em>Accident Analysis and Prevention</em> 49. <a href="https://doi.org/10.1016/j.aap.2012.03.011">https://doi.org/10.1016/j.aap.2012.03.011</a>.
+</div>
+<div id="ref-Bullard2023" class="csl-entry" role="listitem">
+Bullard, Cailis, Steven Jones, Emmanuel Kofi Adanu, and Jun Liu. 2023. <span>“Crash Severity Analysis of Single-Vehicle Rollover Crashes in Namibia: A Mixed Logit Approach.”</span> <em>IATSS Research</em> 47. <a href="https://doi.org/10.1016/j.iatssr.2023.07.002">https://doi.org/10.1016/j.iatssr.2023.07.002</a>.
+</div>
+<div id="ref-Champahom2020" class="csl-entry" role="listitem">
+Champahom, Thanapong, Sajjakaj Jomnonkwao, Duangdao Watthanaklang, Ampol Karoonsoontawong, Vuttichai Chatpattananan, and Vatanavongs Ratanavaraha. 2020. <span>“Applying Hierarchical Logistic Models to Compare Urban and Rural Roadway Modeling of Severity of Rear-End Vehicular Crashes.”</span> <em>Accident Analysis and Prevention</em> 141. <a href="https://doi.org/10.1016/j.aap.2020.105537">https://doi.org/10.1016/j.aap.2020.105537</a>.
+</div>
+<div id="ref-Das2018" class="csl-entry" role="listitem">
+Das, Subasish, Anandi Dutta, Mohammad Jalayer, Apoorba Bibeka, and Lingtao Wu. 2018. <span>“Factors Influencing the Patterns of Wrong-Way Driving Crashes on Freeway Exit Ramps and Median Crossovers: Exploration Using <span>‘Eclat’</span> Association Rules to Promote Safety.”</span> <em>International Journal of Transportation Science and Technology</em> 7. <a href="https://doi.org/10.1016/j.ijtst.2018.02.001">https://doi.org/10.1016/j.ijtst.2018.02.001</a>.
+</div>
+<div id="ref-Dimitrijevic2023" class="csl-entry" role="listitem">
+Dimitrijevic, Branislav, Roksana Asadi, and Lazar Spasovic. 2023. <span>“Application of Hybrid Support Vector Machine Models in Analysis of Work Zone Crash Injury Severity.”</span> <em>Transportation Research Interdisciplinary Perspectives</em> 19. <a href="https://doi.org/10.1016/j.trip.2023.100801">https://doi.org/10.1016/j.trip.2023.100801</a>.
+</div>
+<div id="ref-Duddu2019" class="csl-entry" role="listitem">
+Duddu, Venkata R., Venu Madhav Kukkapalli, and Srinivas S. Pulugurtha. 2019. <span>“Crash Risk Factors Associated with Injury Severity of Teen Drivers.”</span> <em>IATSS Research</em> 43. <a href="https://doi.org/10.1016/j.iatssr.2018.08.003">https://doi.org/10.1016/j.iatssr.2018.08.003</a>.
+</div>
+<div id="ref-Eriksson2022" class="csl-entry" role="listitem">
+Eriksson, Jenny, Anna Niska, and Åsa Forsman. 2022. <span>“Injured Cyclists with Focus on Single-Bicycle Crashes and Differences in Injury Severity in Sweden.”</span> <em>Accident Analysis and Prevention</em> 165. <a href="https://doi.org/10.1016/j.aap.2021.106510">https://doi.org/10.1016/j.aap.2021.106510</a>.
+</div>
+<div id="ref-Farid2021" class="csl-entry" role="listitem">
+Farid, Ahmed, and Khaled Ksaibati. 2021. <span>“Modeling Severities of Motorcycle Crashes Using Random Parameters.”</span> <em>Journal of Traffic and Transportation Engineering (English Edition)</em> 8. <a href="https://doi.org/10.1016/j.jtte.2020.01.001">https://doi.org/10.1016/j.jtte.2020.01.001</a>.
+</div>
+<div id="ref-Fu2021" class="csl-entry" role="listitem">
+Fu, Wen, Jaeyoung Lee, and Helai Huang. 2021. <span>“How Has the Injury Severity by Gender Changed After Using Female Dummy in Vehicle Testing? Evidence from Florida’s Crash Data.”</span> <em>Journal of Transport and Health</em> 21. <a href="https://doi.org/10.1016/j.jth.2021.101073">https://doi.org/10.1016/j.jth.2021.101073</a>.
+</div>
+<div id="ref-Ghasemzadeh2019" class="csl-entry" role="listitem">
+Ghasemzadeh, Ali, and Mohamed M. Ahmed. 2019. <span>“Exploring Factors Contributing to Injury Severity at Work Zones Considering Adverse Weather Conditions.”</span> <em>IATSS Research</em> 43. <a href="https://doi.org/10.1016/j.iatssr.2018.11.002">https://doi.org/10.1016/j.iatssr.2018.11.002</a>.
+</div>
+<div id="ref-Harris2023" class="csl-entry" role="listitem">
+Harris, Laura, Numan Ahmad, Asad Khattak, and Subhadeep Chakraborty. 2023. <span>“Exploring the Effect of Visibility Factors on Vehicle–Pedestrian Crash Injury Severity.”</span> <em>Transportation Research Record: Journal of the Transportation Research Board</em>. <a href="https://doi.org/10.1177/03611981231164070">https://doi.org/10.1177/03611981231164070</a>.
+</div>
+<div id="ref-Holdridge2005" class="csl-entry" role="listitem">
+Holdridge, Jason M., Venky N. Shankar, and Gudmundur F. Ulfarsson. 2005. <span>“The Crash Severity Impacts of Fixed Roadside Objects.”</span> <em>Journal of Safety Research</em> 36. <a href="https://doi.org/10.1016/j.jsr.2004.12.005">https://doi.org/10.1016/j.jsr.2004.12.005</a>.
+</div>
+<div id="ref-Hossain2023" class="csl-entry" role="listitem">
+Hossain, Md Mahmud, Huaguo Zhou, and Xiaoduan Sun. 2023. <span>“A Clustering Regression Approach to Explore the Heterogeneous Effects of Risk Factors Associated with Teen Driver Crash Severity.”</span> <em>Transportation Research Record: Journal of the Transportation Research Board</em> 2677. <a href="https://doi.org/10.1177/03611981221150927">https://doi.org/10.1177/03611981221150927</a>.
+</div>
+<div id="ref-Hosseinzadeh2021" class="csl-entry" role="listitem">
+Hosseinzadeh, Aryan, Amin Moeinaddini, and Ali Ghasemzadeh. 2021. <span>“Investigating Factors Affecting Severity of Large Truck-Involved Crashes: Comparison of the SVM and Random Parameter Logit Model.”</span> <em>Journal of Safety Research</em> 77. <a href="https://doi.org/10.1016/j.jsr.2021.02.012">https://doi.org/10.1016/j.jsr.2021.02.012</a>.
+</div>
+<div id="ref-Hu2011" class="csl-entry" role="listitem">
+Hu, Wen, and Eric T. Donnell. 2011. <span>“Severity Models of Cross-Median and Rollover Crashes on Rural Divided Highways in Pennsylvania.”</span> <em>Journal of Safety Research</em> 42. <a href="https://doi.org/10.1016/j.jsr.2011.07.004">https://doi.org/10.1016/j.jsr.2011.07.004</a>.
+</div>
+<div id="ref-Iranitalab2018" class="csl-entry" role="listitem">
+Iranitalab, Amirfarrokh, Yashu Kang, and Aemal Khattak. 2018. <span>“Modeling the Probability of Hazardous Materials Release in Crashes at Highway–Rail Grade Crossings.”</span> <em>Transportation Research Record</em> 2672. <a href="https://doi.org/10.1177/0361198118780885">https://doi.org/10.1177/0361198118780885</a>.
+</div>
+<div id="ref-Jiang2021" class="csl-entry" role="listitem">
+Jiang, Xinguo, Mingqiang Han, Runhua Guo, Guopeng Zhang, Yingfei Fan, Xiang Li, Wei Bai, Mengmeng Wei, and Qi Liang. 2021. <span>“Examining the Underlying Exposures of Hit-and-Run and Non-Hit-and-Run Crashes.”</span> <em>Journal of Transport and Health</em> 20. <a href="https://doi.org/10.1016/j.jth.2020.100995">https://doi.org/10.1016/j.jth.2020.100995</a>.
+</div>
+<div id="ref-Kardar2020" class="csl-entry" role="listitem">
+Kardar, Adeleh, and Seyed Rasoul Davoodi. 2020. <span>“A Generalized Ordered Probit Model for Analyzing Driver Injury Severity of Head-on Crashes on Two-Lane Rural Highways in Malaysia.”</span> <em>Journal of Transportation Safety and Security</em> 12. <a href="https://doi.org/10.1080/19439962.2019.1571550">https://doi.org/10.1080/19439962.2019.1571550</a>.
+</div>
+<div id="ref-Keramati2020" class="csl-entry" role="listitem">
+Keramati, Amin, Pan Lu, Amirfarrokh Iranitalab, Danguang Pan, and Ying Huang. 2020. <span>“A Crash Severity Analysis at Highway-Rail Grade Crossings: The Random Survival Forest Method.”</span> <em>Accident Analysis and Prevention</em> 144. <a href="https://doi.org/10.1016/j.aap.2020.105683">https://doi.org/10.1016/j.aap.2020.105683</a>.
+</div>
+<div id="ref-Khan2020" class="csl-entry" role="listitem">
+Khan, Ihsan Ullah, and Kimberly Vachal. 2020. <span>“Factors Affecting Injury Severity of Single-Vehicle Rollover Crashes in the United States.”</span> <em>Traffic Injury Prevention</em> 21. <a href="https://doi.org/10.1080/15389588.2019.1696962">https://doi.org/10.1080/15389588.2019.1696962</a>.
+</div>
+<div id="ref-Kim2021" class="csl-entry" role="listitem">
+Kim, Ji Min, Sang Chul Kim, Kang Hyun Lee, Ho Jung Kim, Hoon Kim, Seok Woo Lee, Dae Seok Na, and Jung Soo Park. 2021. <span>“Preventive Effects of Seat Belts on Traumatic Brain Injury in Motor Vehicle Collisions Classified by Crash Severities and Collision Directions.”</span> <em>European Journal of Trauma and Emergency Surgery</em> 47. <a href="https://doi.org/10.1007/s00068-019-01095-4">https://doi.org/10.1007/s00068-019-01095-4</a>.
+</div>
+<div id="ref-Kim2017" class="csl-entry" role="listitem">
+Kim, Myeonghyeon, Seung Young Kho, and Dong Kyu Kim. 2017. <span>“Hierarchical Ordered Model for Injury Severity of Pedestrian Crashes in South Korea.”</span> <em>Journal of Safety Research</em> 61. <a href="https://doi.org/10.1016/j.jsr.2017.02.011">https://doi.org/10.1016/j.jsr.2017.02.011</a>.
+</div>
+<div id="ref-Kitali2022" class="csl-entry" role="listitem">
+Kitali, Angela E., Emmanuel Kidando, Priyanka Alluri, Thobias Sando, and Jimoku Hinda Salum. 2022. <span>“Modeling Severity of Motorcycle Crashes with Dirichlet Process Priors.”</span> <em>Journal of Transportation Safety and Security</em>. <a href="https://doi.org/10.1080/19439962.2020.1738613">https://doi.org/10.1080/19439962.2020.1738613</a>.
+</div>
+<div id="ref-Kutela2023" class="csl-entry" role="listitem">
+Kutela, Boniphace, Angela E. Kitali, Emmanuel Kidando, Christian Mbuya, and Neema Langa. 2023. <span>“Exploring the Need to Model Severity of Single- and Multi-Occupant Vehicles Crashes Separately: A Case of Crashes at Highway-Rail Grade Crossings.”</span> <em>International Journal of Transportation Science and Technology</em>. <a href="https://doi.org/10.1016/j.ijtst.2022.11.002">https://doi.org/10.1016/j.ijtst.2022.11.002</a>.
+</div>
+<div id="ref-Lasota2020" class="csl-entry" role="listitem">
+Lasota, Dorota, Mariusz Goniewicz, Dariusz Kosson, Andrzej Ochal, Paweł Krajewski, Sylwia Tarka, Krzysztof Goniewicz, and Dagmara Mirowska-Guzel. 2020. <span>“Effects of Ethyl Alcohol on Injuries Severity According to Injury Severity Scales in Pedestrian Fatal Injury in Traffic Crashes.”</span> <em>International Journal of Injury Control and Safety Promotion</em> 27. <a href="https://doi.org/10.1080/17457300.2019.1665551">https://doi.org/10.1080/17457300.2019.1665551</a>.
+</div>
+<div id="ref-Lee2023" class="csl-entry" role="listitem">
+Lee, Dongkwan, Jean Michel Guldmann, and Burkhard von Rabenau. 2023. <span>“Impact of Driver’s Age and Gender, Built Environment, and Road Conditions on Crash Severity: A Logit Modeling Approach.”</span> <em>International Journal of Environmental Research and Public Health</em> 20. <a href="https://doi.org/10.3390/ijerph20032338">https://doi.org/10.3390/ijerph20032338</a>.
+</div>
+<div id="ref-Li2020" class="csl-entry" role="listitem">
+Li, Jinhong, Jinli Liu, Pengfei Liu, and Yi Qi. 2020. <span>“Analysis of Factors Contributing to the Severity of Large Truck Crashes.”</span> <em>Entropy</em> 22. <a href="https://doi.org/10.3390/e22111191">https://doi.org/10.3390/e22111191</a>.
+</div>
+<div id="ref-Li2018" class="csl-entry" role="listitem">
+Li, Ning, Byungkyu Brian Park, and James H. Lambert. 2018. <span>“Effect of Guardrail on Reducing Fatal and Severe Injuries on Freeways: Real-World Crash Data Analysis and Performance Assessment.”</span> <em>Journal of Transportation Safety and Security</em> 10. <a href="https://doi.org/10.1080/19439962.2017.1297970">https://doi.org/10.1080/19439962.2017.1297970</a>.
+</div>
+<div id="ref-Lin2021" class="csl-entry" role="listitem">
+Lin, Zijing, and Wei Fan. 2021. <span>“Cyclist Injury Severity Analysis with Mixed-Logit Models at Intersections and Nonintersection Locations.”</span> <em>Journal of Transportation Safety and Security</em> 13. <a href="https://doi.org/10.1080/19439962.2019.1628140">https://doi.org/10.1080/19439962.2019.1628140</a>.
+</div>
+<div id="ref-Liu2020" class="csl-entry" role="listitem">
+Liu, Pengfei, and Wei Fan. 2020. <span>“Modeling Head-on Crash Severity with Drivers Under the Influence of Alcohol or Drugs (DUI) and Non-DUI.”</span> <em>Traffic Injury Prevention</em> 21. <a href="https://doi.org/10.1080/15389588.2019.1696964">https://doi.org/10.1080/15389588.2019.1696964</a>.
+</div>
+<div id="ref-Lu2010" class="csl-entry" role="listitem">
+Lu, George, Madhav V. Chitturi, Andrew W. Ooms, and David A. Noyce. 2010. <span>“Ordinal Discrete Choice Analyses of Wisconsin Cross-Median Crash Severities.”</span> <em>Transportation Research Record</em>. <a href="https://doi.org/10.3141/2148-06">https://doi.org/10.3141/2148-06</a>.
+</div>
+<div id="ref-Ma2023" class="csl-entry" role="listitem">
+Ma, Jingfeng, Gang Ren, Haojie Li, Shunchao Wang, and Jingcai Yu. 2023. <span>“Characterizing the Differences of Injury Severity Between Single-Vehicle and Multi-Vehicle Crashes in China.”</span> <em>Journal of Transportation Safety and Security</em> 15. <a href="https://doi.org/10.1080/19439962.2022.2056931">https://doi.org/10.1080/19439962.2022.2056931</a>.
+</div>
+<div id="ref-Mafi2018" class="csl-entry" role="listitem">
+Mafi, Somayeh, Yassir AbdelRazig, and Ryan Doczy. 2018. <span>“Machine Learning Methods to Analyze Injury Severity of Drivers from Different Age and Gender Groups.”</span> <em>Transportation Research Record</em> 2672. <a href="https://doi.org/10.1177/0361198118794292">https://doi.org/10.1177/0361198118794292</a>.
+</div>
+<div id="ref-Mohamed2017" class="csl-entry" role="listitem">
+Mohamed, Shawky A., Kishta Mohamed, and Husain A. Al-Harthi. 2017. <span>“Investigating Factors Affecting the Occurrence and Severity of Rear-End Crashes.”</span> <em>Transportation Research Procedia</em> 25. <a href="https://doi.org/10.1016/j.trpro.2017.05.403">https://doi.org/10.1016/j.trpro.2017.05.403</a>.
+</div>
+<div id="ref-Naik2016" class="csl-entry" role="listitem">
+Naik, Bhaven, Li Wei Tung, Shanshan Zhao, and Aemal J. Khattak. 2016. <span>“Weather Impacts on Single-Vehicle Truck Crash Injury Severity.”</span> <em>Journal of Safety Research</em> 58. <a href="https://doi.org/10.1016/j.jsr.2016.06.005">https://doi.org/10.1016/j.jsr.2016.06.005</a>.
+</div>
+<div id="ref-Okafor2022" class="csl-entry" role="listitem">
+Okafor, Sunday, Emmanuel Kofi Adanu, and Steven Jones. 2022. <span>“Severity Analysis of Crashes Involving in-State and Out-of-State Large Truck Drivers in Alabama: A Random Parameter Multinomial Logit Model with Heterogeneity in Means and Variances.”</span> <em>Heliyon</em> 8. <a href="https://doi.org/10.1016/j.heliyon.2022.e11989">https://doi.org/10.1016/j.heliyon.2022.e11989</a>.
+</div>
+<div id="ref-Peng2012" class="csl-entry" role="listitem">
+Peng, Yichuan, Srinivas Geedipally, and Dominique Lord. 2012. <span>“Effect of Roadside Features on Single-Vehicle Roadway Departure Crashes on Rural Two-Lane Roads.”</span> <em>Transportation Research Record</em>. <a href="https://doi.org/10.3141/2309-03">https://doi.org/10.3141/2309-03</a>.
+</div>
+<div id="ref-Prajongkha2023" class="csl-entry" role="listitem">
+Prajongkha, Phanuphong, Kunnawee Kanitpong, and Auearree Jensupakarn. 2023. <span>“Factors Contributing to the Severity of Motorcycle Rear-End Crashes in Thailand.”</span> <em>Traffic Injury Prevention</em> 24. <a href="https://doi.org/10.1080/15389588.2022.2127320">https://doi.org/10.1080/15389588.2022.2127320</a>.
+</div>
+<div id="ref-Rezapour2021" class="csl-entry" role="listitem">
+Rezapour, Mahdi, and Khaled Ksaibati. 2021. <span>“Modeling Crashes Involving Children, Finite Mixture Cumulative Link Mixed Model.”</span> <em>International Journal of Injury Control and Safety Promotion</em> 28. <a href="https://doi.org/10.1080/17457300.2021.1964088">https://doi.org/10.1080/17457300.2021.1964088</a>.
+</div>
+<div id="ref-Rezapour2022" class="csl-entry" role="listitem">
+———. 2022. <span>“Contributory Factors to the Severity of Single-Vehicle Rollover Crashes on&nbsp;a&nbsp;Mountainous Area, Generalized Additive Model.”</span> <em>International Journal of Injury Control and Safety Promotion</em> 29. <a href="https://doi.org/10.1080/17457300.2021.2011927">https://doi.org/10.1080/17457300.2021.2011927</a>.
+</div>
+<div id="ref-Rezapour2020" class="csl-entry" role="listitem">
+Rezapour, Mahdi, Sahima Nazneen, and Khaled Ksaibati. 2020. <span>“Application of Deep Learning Techniques in Predicting Motorcycle Crash Severity.”</span> <em>Engineering Reports</em> 2. <a href="https://doi.org/10.1002/eng2.12175">https://doi.org/10.1002/eng2.12175</a>.
+</div>
+<div id="ref-Roque2021" class="csl-entry" role="listitem">
+Roque, Carlos, Mohammad Jalayer, and Ahmed Sajid Hasan. 2021. <span>“Investigation of Injury Severities in Single-Vehicle Crashes in North Carolina Using Mixed Logit Models.”</span> <em>Journal of Safety Research</em> 77. <a href="https://doi.org/10.1016/j.jsr.2021.02.013">https://doi.org/10.1016/j.jsr.2021.02.013</a>.
+</div>
+<div id="ref-Russo2023" class="csl-entry" role="listitem">
+Russo, Brendan J., Fan Yu, and Edward J. Smaglik. 2023. <span>“Examination of Factors Associated with Fault Status and Injury Severity in Intersection-Related Rear-End Crashes: Application of Binary and Bivariate Ordered Probit Models.”</span> <em>Safety Science</em> 164. <a href="https://doi.org/10.1016/j.ssci.2023.106187">https://doi.org/10.1016/j.ssci.2023.106187</a>.
+</div>
+<div id="ref-Salum2019" class="csl-entry" role="listitem">
+Salum, Jimoku Hinda, Angela E. Kitali, Hannibal Bwire, Thobias Sando, and Priyanka Alluri. 2019. <span>“Severity of Motorcycle Crashes in Dar Es Salaam, Tanzania.”</span> <em>Traffic Injury Prevention</em> 20. <a href="https://doi.org/10.1080/15389588.2018.1544706">https://doi.org/10.1080/15389588.2018.1544706</a>.
+</div>
+<div id="ref-Sawtelle2023" class="csl-entry" role="listitem">
+Sawtelle, Alainie, Mohammadali Shirazi, Per Erik Garder, and Jonathan Rubin. 2023. <span>“Driver, Roadway, and Weather Factors on Severity of Lane Departure Crashes in Maine.”</span> <em>Journal of Safety Research</em> 84. <a href="https://doi.org/10.1016/j.jsr.2022.11.006">https://doi.org/10.1016/j.jsr.2022.11.006</a>.
+</div>
+<div id="ref-Shaaban2021" class="csl-entry" role="listitem">
+Shaaban, Khaled, Iman Gharraie, Emanuele Sacchi, and Inhi Kim. 2021. <span>“Severity Analysis of Red-Light-Running-Related Crashes Using Structural Equation Modeling.”</span> <em>Journal of Transportation Safety and Security</em> 13. <a href="https://doi.org/10.1080/19439962.2019.1629137">https://doi.org/10.1080/19439962.2019.1629137</a>.
+</div>
+<div id="ref-Shao2020" class="csl-entry" role="listitem">
+Shao, Xiaojun, Xiaoxiang Ma, Feng Chen, Mingtao Song, Xiaodong Pan, and Kesi You. 2020. <span>“A Random Parameters Ordered Probit Analysis of Injury Severity in Truck Involved Rear-End Collisions.”</span> <em>International Journal of Environmental Research and Public Health</em> 17. <a href="https://doi.org/10.3390/ijerph17020395">https://doi.org/10.3390/ijerph17020395</a>.
+</div>
+<div id="ref-Sharafeldin2022" class="csl-entry" role="listitem">
+Sharafeldin, Mostafa, Ahmed Farid, and Khaled Ksaibati. 2022. <span>“Injury Severity Analysis of Rear-End Crashes at Signalized Intersections.”</span> <em>Sustainability (Switzerland)</em> 14. <a href="https://doi.org/10.3390/su142113858">https://doi.org/10.3390/su142113858</a>.
+</div>
+<div id="ref-Shen2021" class="csl-entry" role="listitem">
+Shen, Xiaoyan, and Shanshan Wei. 2021. <span>“Severity Analysis of Road Transport Accidents of Hazardous Materials with Machine Learning.”</span> <em>Traffic Injury Prevention</em> 22. <a href="https://doi.org/10.1080/15389588.2021.1900569">https://doi.org/10.1080/15389588.2021.1900569</a>.
+</div>
+<div id="ref-Shyhalla2014" class="csl-entry" role="listitem">
+Shyhalla, Kathleen. 2014. <span>“Alcohol Involvement and Other Risky Driver Behaviors: Effects on Crash Initiation and Crash Severity.”</span> <em>Traffic Injury Prevention</em> 15. <a href="https://doi.org/10.1080/15389588.2013.822491">https://doi.org/10.1080/15389588.2013.822491</a>.
+</div>
+<div id="ref-Sivasankaran2022" class="csl-entry" role="listitem">
+Sivasankaran, Sathish Kumar, and Venkatesh Balasubramanian. 2022. <span>“Investigation of Factors Contributing to Pedestrian Hit-and-Run Crashes in India.”</span> <em>Journal of Transportation Safety and Security</em> 14. <a href="https://doi.org/10.1080/19439962.2020.1781313">https://doi.org/10.1080/19439962.2020.1781313</a>.
+</div>
+<div id="ref-Sivasankaran2021" class="csl-entry" role="listitem">
+Sivasankaran, Sathish Kumar, Harikrishna Rangam, and Venkatesh Balasubramanian. 2021. <span>“Investigation of Factors Contributing to Injury Severity in Single Vehicle Motorcycle Crashes in India.”</span> <em>International Journal of Injury Control and Safety Promotion</em> 28. <a href="https://doi.org/10.1080/17457300.2021.1908367">https://doi.org/10.1080/17457300.2021.1908367</a>.
+</div>
+<div id="ref-Song2023" class="csl-entry" role="listitem">
+Song, Dongdong, Xiaobao Yang, Yitao Yang, Pengfei Cui, and Guangyu Zhu. 2023. <span>“Bivariate Joint Analysis of Injury Severity of Drivers in Truck-Car Crashes Accommodating Multilayer Unobserved Heterogeneity.”</span> <em>Accident Analysis and Prevention</em> 190. <a href="https://doi.org/10.1016/j.aap.2023.107175">https://doi.org/10.1016/j.aap.2023.107175</a>.
+</div>
+<div id="ref-Song2021" class="csl-entry" role="listitem">
+Song, Li, Wei (David) Fan, and Yang Li. 2021. <span>“Time-of-Day Variations and the Temporal Instability of Multi-Vehicle Crash Injury Severities Under the Influence of Alcohol or Drugs After the Great Recession.”</span> <em>Analytic Methods in Accident Research</em> 32. <a href="https://doi.org/10.1016/j.amar.2021.100183">https://doi.org/10.1016/j.amar.2021.100183</a>.
+</div>
+<div id="ref-Sun2022" class="csl-entry" role="listitem">
+Sun, Ming, Ronggui Zhou, Chengwu Jiao, and Xiaoduan Sun. 2022. <span>“Severity Analysis of Hazardous Material Road Transportation Crashes with a Bayesian Network Using Highway Safety Information System Data.”</span> <em>International Journal of Environmental Research and Public Health</em> 19. <a href="https://doi.org/10.3390/ijerph19074002">https://doi.org/10.3390/ijerph19074002</a>.
+</div>
+<div id="ref-Theofilatos2021" class="csl-entry" role="listitem">
+Theofilatos, Athanasios, Constantinos Antoniou, and George Yannis. 2021. <span>“Exploring Injury Severity of Children and Adolescents Involved in Traffic Crashes in Greece.”</span> <em>Journal of Traffic and Transportation Engineering (English Edition)</em> 8. <a href="https://doi.org/10.1016/j.jtte.2020.07.005">https://doi.org/10.1016/j.jtte.2020.07.005</a>.
+</div>
+<div id="ref-Villavicencio2022" class="csl-entry" role="listitem">
+Villavicencio, Leon, Austin M. Svancara, Tara Kelley-Baker, and Brian C. Tefft. 2022. <span>“Passenger Presence and the Relative Risk of Teen Driver Death.”</span> <em>Journal of Adolescent Health</em> 70. <a href="https://doi.org/10.1016/j.jadohealth.2021.10.038">https://doi.org/10.1016/j.jadohealth.2021.10.038</a>.
+</div>
+<div id="ref-Wahab2020" class="csl-entry" role="listitem">
+Wahab, Lukuman, and Haobin Jiang. 2020. <span>“Severity Prediction of Motorcycle Crashes with Machine Learning Methods.”</span> <em>International Journal of Crashworthiness</em> 25. <a href="https://doi.org/10.1080/13588265.2019.1616885">https://doi.org/10.1080/13588265.2019.1616885</a>.
+</div>
+<div id="ref-Wen2023" class="csl-entry" role="listitem">
+Wen, Huiying, Zhaoliang Ma, Zheng Chen, and Chenwei Luo. 2023. <span>“Analyzing the Impact of Curve and Slope on Multi-Vehicle Truck Crash Severity on Mountainous Freeways.”</span> <em>Accident Analysis and Prevention</em> 181. <a href="https://doi.org/10.1016/j.aap.2022.106951">https://doi.org/10.1016/j.aap.2022.106951</a>.
+</div>
+<div id="ref-Wu2023" class="csl-entry" role="listitem">
+Wu, Jingxian, Soora Rasouli, Jing Zhao, Yinan Qian, and Long Cheng. 2023. <span>“Large Truck Fatal Crash Severity Segmentation and Analysis Incorporating All Parties Involved: A Bayesian Network Approach.”</span> <em>Travel Behaviour and Society</em> 30. <a href="https://doi.org/10.1016/j.tbs.2022.09.003">https://doi.org/10.1016/j.tbs.2022.09.003</a>.
+</div>
+<div id="ref-Wu2018" class="csl-entry" role="listitem">
+Wu, Qiong, and Guohui Zhang. 2018. <span>“Formulating Alcohol-Influenced Driver’s Injury Severities in Intersection-Related Crashes.”</span> <em>Transport</em> 33. <a href="https://doi.org/10.3846/16484142.2016.1144221">https://doi.org/10.3846/16484142.2016.1144221</a>.
+</div>
+<div id="ref-Xing2020" class="csl-entry" role="listitem">
+Xing, Yingying, Shengdi Chen, Shengxue Zhu, Yi Zhang, and Jian Lu. 2020. <span>“Exploring Risk Factors Contributing to the Severity of Hazardous Material Transportation Accidents in China.”</span> <em>International Journal of Environmental Research and Public Health</em> 17. <a href="https://doi.org/10.3390/ijerph17041344">https://doi.org/10.3390/ijerph17041344</a>.
+</div>
+<div id="ref-Yan2022" class="csl-entry" role="listitem">
+Yan, Xintong, Jie He, Guanhe Wu, Changjian Zhang, Chenwei Wang, and Yuntao Ye. 2022. <span>“Differences of Overturned and Hit-Fixed-Object Crashes on Rural Roads Accompanied by Speeding Driving: Accommodating Potential Temporal Shifts.”</span> <em>Analytic Methods in Accident Research</em> 35. <a href="https://doi.org/10.1016/j.amar.2022.100220">https://doi.org/10.1016/j.amar.2022.100220</a>.
+</div>
+<div id="ref-Yazdani2021" class="csl-entry" role="listitem">
+Yazdani, Mirbahador, and Habibollah Nassiri. 2021. <span>“The Effect of Weather on the Severity of Multi-Vehicle Crashes: A Case Study of Iran.”</span> <em>Proceedings of the Institution of Civil Engineers: Transport</em> 174. <a href="https://doi.org/10.1680/jtran.18.00080">https://doi.org/10.1680/jtran.18.00080</a>.
+</div>
+<div id="ref-Yu2021" class="csl-entry" role="listitem">
+Yu, Miao, Changxi Ma, and Jinxing Shen. 2021. <span>“Temporal Stability of Driver Injury Severity in Single-Vehicle Roadway Departure Crashes: A Random Thresholds Random Parameters Hierarchical Ordered Probit Approach.”</span> <em>Analytic Methods in Accident Research</em> 29. <a href="https://doi.org/10.1016/j.amar.2020.100144">https://doi.org/10.1016/j.amar.2020.100144</a>.
+</div>
+<div id="ref-Yu2020" class="csl-entry" role="listitem">
+Yu, Miao, Changjiang Zheng, and Changxi Ma. 2020. <span>“Analysis of Injury Severity of Rear-End Crashes in Work Zones: A Random Parameters Approach with Heterogeneity in Means and Variances.”</span> <em>Analytic Methods in Accident Research</em> 27. <a href="https://doi.org/10.1016/j.amar.2020.100126">https://doi.org/10.1016/j.amar.2020.100126</a>.
+</div>
+<div id="ref-Zafri2020" class="csl-entry" role="listitem">
+Zafri, Niaz Mahmud, Ahmed Aflan Prithul, Ivee Baral, and Moshiur Rahman. 2020. <span>“Exploring the Factors Influencing Pedestrian-Vehicle Crash Severity in Dhaka, Bangladesh.”</span> <em>International Journal of Injury Control and Safety Promotion</em> 27. <a href="https://doi.org/10.1080/17457300.2020.1774618">https://doi.org/10.1080/17457300.2020.1774618</a>.
+</div>
+<div id="ref-Zeng2020" class="csl-entry" role="listitem">
+Zeng, Qiang, Wei Hao, Jaeyoung Lee, and Feng Chen. 2020. <span>“Investigating the Impacts of Real-Time Weather Conditions on Freeway Crash Severity: A Bayesian Spatial Analysis.”</span> <em>International Journal of Environmental Research and Public Health</em> 17. <a href="https://doi.org/10.3390/ijerph17082768">https://doi.org/10.3390/ijerph17082768</a>.
+</div>
+<div id="ref-Zhai2019" class="csl-entry" role="listitem">
+Zhai, Xiaoqi, Helai Huang, N. N. Sze, Ziqi Song, and Kai Kwong Hon. 2019. <span>“Diagnostic Analysis of the Effects of Weather Condition on Pedestrian Crash Severity.”</span> <em>Accident Analysis and Prevention</em> 122. <a href="https://doi.org/10.1016/j.aap.2018.10.017">https://doi.org/10.1016/j.aap.2018.10.017</a>.
+</div>
+<div id="ref-Zhang2021" class="csl-entry" role="listitem">
+Zhang, Guangnan, Ying Tan, Qiaoting Zhong, and Ruwei Hu. 2021. <span>“Analysis of Traffic Crashes Caused by Motorcyclists Running Red Lights in Guangdong Province of China.”</span> <em>International Journal of Environmental Research and Public Health</em> 18. <a href="https://doi.org/10.3390/ijerph18020553">https://doi.org/10.3390/ijerph18020553</a>.
+</div>
+<div id="ref-Zhou2018" class="csl-entry" role="listitem">
+Zhou, Bei, Zongzhi Li, and Shengrui Zhang. 2018. <span>“Comparison of Factors Affecting Crash Severities in Hit-and-Run and Non-Hit-and-Run Crashes.”</span> <em>Journal of Advanced Transportation</em> 2018. <a href="https://doi.org/10.1155/2018/8537131">https://doi.org/10.1155/2018/8537131</a>.
+</div>
+<div id="ref-Zhou2020" class="csl-entry" role="listitem">
+Zhou, Bei, Xiqing Wang, Shengrui Zhang, Zongzhi Li, Shaofeng Sun, Kun Shu, and Qing Sun. 2020. <span>“Comparing Factors Affecting Injury Severity of Passenger Car and Truck Drivers.”</span> <em>IEEE Access</em> 8. <a href="https://doi.org/10.1109/ACCESS.2020.3018183">https://doi.org/10.1109/ACCESS.2020.3018183</a>.
+</div>
+<div id="ref-Zhu2022" class="csl-entry" role="listitem">
+Zhu, Siying. 2022. <span>“Analyse Vehicle–Pedestrian Crash Severity at Intersection with Data Mining Techniques.”</span> <em>International Journal of Crashworthiness</em> 27. <a href="https://doi.org/10.1080/13588265.2021.1929002">https://doi.org/10.1080/13588265.2021.1929002</a>.
+</div>
+<div id="ref-Zhu2021" class="csl-entry" role="listitem">
+Zhu, Siying, and Jianwu Wan. 2021. <span>“Cost-Sensitive Learning for Semi-Supervised Hit-and-Run Analysis.”</span> <em>Accident Analysis and Prevention</em> 158. <a href="https://doi.org/10.1016/j.aap.2021.106199">https://doi.org/10.1016/j.aap.2021.106199</a>.
+</div>
+<div id="ref-Zhu2011" class="csl-entry" role="listitem">
+Zhu, Xiaoyu, and Sivaramakrishnan Srinivasan. 2011. <span>“A Comprehensive Analysis of Factors Influencing the Injury Severity of Large-Truck Crashes.”</span> <em>Accident Analysis and Prevention</em> 43. <a href="https://doi.org/10.1016/j.aap.2010.07.007">https://doi.org/10.1016/j.aap.2010.07.007</a>.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

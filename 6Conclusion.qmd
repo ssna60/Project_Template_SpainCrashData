@@ -1,0 +1,17 @@
+# Conclosion {#sec-Conclosion}
+
+A few points are mentioned as a summary:
+
+1.  With the passage of time, it becomes easier and harder to publish articles in high-quality journals! Easier because there are so many research assistant tools available. More difficult because the expectations of journals and audiences have risen: about 5 years ago, only one machine learning modeling was enough to accept an article, but now the model often has to be interpreted as much as possible; In this regard, I recommend reading the book [Interpretable Machine Learning](https://christophm.github.io/interpretable-ml-book/).
+
+2.  In order to publish a group of articles in any research field, one must first spend a lot of time learning the concepts of that research field. Of course, there is no end to learning. It is also necessary to spend time on training to conduct reproducible research. We moved enough on the runway and reached the right speed for flight, and now it's time to fly. From now, learn everything else in a **specific project** and with a **specific goal**. This saves a lot of time. I hope that if you have the opportunity and spend about 10 hours a day, then within several months you will write at least 5 high-quality articles that are ready for submission.
+
+3.  We agreed to publish 10 joint articles. According to the reasons given in the following cases, I suggest that we divide the work: you manage 5 articles with accident data and I manage the other 5 articles. Of course, we present our opinion for each joint article, but you and I do mental, intellectual and practical outsourcing for the article under the management of the other party. Now the reasons:
+
+    -   You only need an article related to accident data for your doctoral thesis, and on the other hand, I and other students are researching on various topics and non-accident data.
+
+    -   To defend your doctoral thesis, you need articles in which the first and second names are you and your supervisor, and I am the third person in your articles as a consultant professor. On the other hand, I need articles to be the first author for my career promotion. Therefore, for a win-win game for both, it is better to research together, but each of us pursue our own goals.
+
+4.  Important point: spend one time of the day only for critical literature reading and creative thinking: always defining a good problem greatly facilitates the path of publishing an article.
+
+Please provide your comments. Remember, I am also eager to learn from you in the fields of publishing articles. Wishing you much success

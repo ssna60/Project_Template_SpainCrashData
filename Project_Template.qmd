@@ -1,0 +1,87 @@
+---
+title: "Spain Crash Data Analysis"
+author:
+  - name: Seyed Saber Naseralavi
+    orcid: 0000-0002-5392-910X
+    email: saber_naseralavi@uk.ac.ir
+    affiliations:
+      - name: aaa
+  - name: Seyed Ehsan Jafarinasab
+    orcid: 0000-0000-0000-0000
+    email: m.a.yarahmadi@eng.uk.ac.ir
+    affiliations:
+      - name: aaa
+format:
+  pdf:
+    pdf-engine: xelatex
+    latex-auto-install: true
+    number-sections: true
+    colorlinks: true
+    keeptex: true
+    code-block-bg: "ebf3fa"
+    plos-pdf:
+    include-in-header: 
+      text: |
+        \usepackage{booktabs}
+        \usepackage{siunitx}
+        \newcolumntype{d}{S[
+            input-open-uncertainty=,
+            input-close-uncertainty=,
+            parse-numbers = false,
+            table-align-text-pre=false,
+            table-align-text-post=false
+         ]}
+  revealjs:
+    chalkboard: true
+  html:
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    number_sections: true
+    code_folding: hide
+    theme: readable
+date: 'last-modified'
+date-format: '[This version:] MMMM D, YYYY [<br>(First version: August  16, 2023)]'
+abstract: 'Abstract: In this short text, the general ideas of some potential research that can be done with Spanish accident data are mentioned and then an example of them is implemented. Also, some points are mentioned for future directions.'
+bibliography: references.bib
+link-citations: true
+csl: accident-analysis-and-prevention.csl
+tbl-cap-location: top
+number-sections: true
+execute:
+  warning: false
+  message: false
+  cache: false
+editor:
+  mode: source
+  quarto:
+  plugins:
+    - quarto-crossref
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = FALSE)
+# Use cache = TRUE if you want to speed up compilation
+
+knitr::opts_knit$set(output.format = "html")  # Set to "html" for HTML output
+
+# A function to allow for showing some of the inline code
+rinline <- function(code){
+  html <- '<code  class="r">``` `r CODE` ```</code>'
+  sub("CODE", code, html)
+}
+```
+
+{{< include 1Introduction.qmd >}}
+
+{{< include 2LiteratureReveiw.qmd >}}
+
+{{< include 3Method.qmd >}}
+
+{{< include 4Results.qmd >}}
+
+{{< include 5Discussion.qmd >}}
+
+{{< include 6Conclusion.qmd >}}
+
+{{< include References.qmd >}}

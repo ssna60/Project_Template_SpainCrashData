@@ -1,0 +1,15 @@
+# Method {#sec-Method}
+
+The aim of the research here is to present a machine learning model to predict the severity of accidents with Spanish accident data. We consider the response variable as the severity of accidents in two levels of injury or non-injury accident. Obviously, a fatal accident is included in the group of injury accidents. The research method is as follows:
+
+1.  First, the accident data of Spain is loaded
+
+2.  Through exploratory analysis, the data is checked and some graphs are drawn
+
+3.  Some variables are selected as predictive variables. In this case, only previous experiences are used and special feature engineering is not used
+
+4.  A decision tree machine learning model is built
+
+5.  With cross-validation, the built model is checked and then finalized 6
+
+6.  The final model is evaluated

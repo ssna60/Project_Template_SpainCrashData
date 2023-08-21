@@ -1,0 +1,44 @@
+---
+bibliography: references.bib
+---
+
+# Literature Reveiw {#sec-Literature-Reveiw}
+
+As mentioned in the @sec-Introduction, in this section, the research literature is presented very briefly and only by referring to the research in each division:
+
+-   Location
+    -   Freeway [@Wen2023; @Li2018; @Li2020]
+    -   Highway-rail crossing [@Keramati2020; @Kutela2023]
+    -   Intersection [@Russo2023; @Sharafeldin2022; @Zhu2022; @Lin2021]
+    -   Workzone [@Dimitrijevic2023; @Yu2020; @Ghasemzadeh2019]
+-   Factor
+    -   Age [@Mafi2018; @Lee2023]
+    -   Time-of-day [@Behnood2019; @Song2021]
+    -   Alcohol [@Song2021; @Liu2020; @Lasota2020; @Wu2018; @Shyhalla2014]
+    -   Seat belt [@Kim2021; @Abay2013]
+    -   At-fault [@Rezapour2020]
+    -   Gender [@Lee2023; @Billah2022; @Fu2021; @Mafi2018; @Amarasingha2014]
+    -   Visibility condition [@Harris2023; @Li2018]
+    -   Weather conditions [@Naik2016; @Zhai2019; @Yazdani2021; @Sawtelle2023; @Ghasemzadeh2019; @Zeng2020]
+-   Type
+    -   Car-truck [@Zhou2020; @Song2023]
+    -   Cross-median [@Lu2010; @Hu2011; @Das2018]
+    -   Fixed object [@Holdridge2005; @Yan2022]
+    -   Hazardous material [@Shen2021; @Sun2022; @Xing2020; @Iranitalab2018; @Ahmed2020]
+    -   Head on [@Liu2020; @Kardar2020]
+    -   Rear-end [@Mohamed2017; @Prajongkha2023; @Shao2020; @Champahom2020; @Yu2020]
+    -   Rollover [@Khan2020; @Hu2011; @Bullard2023; @Rezapour2022]
+    -   Hit and run [@Jiang2021; @Zhou2018; @Zhu2021; @Sivasankaran2022]
+    -   Multi vehicles [@Yazdani2021; @Wen2023; @Ma2023]
+    -   Single vehicle [@Ma2023; @Naik2016; @Sivasankaran2021; @Roque2021]
+    -   Red light running crashes [@Zhang2021; @Shaaban2021]
+    -   Roadway departure [@Alhasan2018; @Peng2012; @Yu2021]
+-   User
+    -   Cyclists [@Eriksson2022; @Boufous2012]
+    -   Pedestrian [@Zhai2019; @Sivasankaran2022; @Kim2017; @Zafri2020]
+    -   Motorcycle [@Farid2021; @Wahab2020; @Kitali2022; @Salum2019; @Rezapour2020; @Prajongkha2023]
+    -   Large truck [@Li2020; @Azimi2022; @Behnood2020; @Zhu2011; @Azimi2020; @Behnood2019; @Wu2023; @Hosseinzadeh2021; @Okafor2022]
+    -   Teen drivers [@Duddu2019; @Villavicencio2022; @Hossain2023]
+    -   Children and adolescents [@Theofilatos2021; @Rezapour2021]
+
+It is obviously in some articles, some combination conditions of the above division are used. The review of the above references was done very superficially. Of course, when we decide to work on a specific topic, we should try to extract all related articles in more detail. Then plan to study and categorize the effective factors affecting that particular issue so as to extract the consistency and inconsistency of the research results.

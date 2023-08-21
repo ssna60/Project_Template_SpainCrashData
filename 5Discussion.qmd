@@ -1,0 +1,9 @@
+# Discussion {#sec-Discussion}
+
+The analysis and modeling done here is just a small example, but it is the basis of all research work. It is necessary to mention a few points here:
+
+1.  Everything goes back to the definition of the problem: modeling should be done on a part of the data according to the definition of the problem (for example, according to the division mentioned in the @sec-Literature-Reveiw).
+
+2.  Modeling can be further segmented for an extracted data and the differences in its different parts can be determined. For example, in the beginning, the aim is to investigate the importance of variables in the severity of rear-end accidents in Spain; Then, the goal is to compare the modeling results by gender in such accidents.
+
+3.  Fortunately, accident data is now available in different parts of the world. Actual accident data at any particular location is valuable for research. You yourself suggested earlier that a comparative study could be the basis of one of our researches, and I agree with this. Of course, it is a good idea to use data from Iran for comparison.

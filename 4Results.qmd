@@ -1,0 +1,238 @@
+# Results {#sec-Results}
+
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+## Load Data
+
+From the aspect of reproducible research, it is better to always describe the research process from the beginning, that is, from the place where the data is read from the primary file. But for convenience here, the R file that has already been created as raw data is copied to the project folder, and to start each research, the data is loaded with the following code.
+
+```{r cache=TRUE}
+#| cache: TRUE
+load("RawData.RData")
+```
+
+Often, we put the `#| cache: TRUE` for each chunk of code to save the time of subsequent executions.
+
+## library
+
+To start each analysis, we first bring all the required libraries. For repeatable research, this is an important point that must be taken into account. In some cases, I saw that it is not paid attention to, and that library is brought to the place where a special library is needed.
+
+```{r  cache=TRUE, warning=FALSE}
+#library
+library(vtable)
+library(caret)
+library(janitor)
+library(tidyverse)
+library(scales)
+library(lubridate) 
+library(RSocrata)
+library(tidymodels)  
+library(themis) 
+library(baguette)
+```
+
+## EDA
+
+In the code below, the names of the variables are modified.
+
+```{r  cache=TRUE}
+#| results: hide
+class(MGE_drv_acc_veh)
+crash_raw <- as_tibble(MGE_drv_acc_veh)  
+class(crash_raw)
+names(crash_raw)
+#names modification
+#names(df)
+crash_raw <- crash_raw |> 
+  clean_names("upper_camel", abbreviations = c("ID", "KM"))
+names(crash_raw)
+```
+
+The code below is not implemented here, but the code chunk is important and useful for quickly checking and reducing variables.
+
+```{r}
+#| eval: false
+(nzv <- nearZeroVar(crash_raw, saveMetrics= TRUE))
+dim(crash_raw)
+nzv <- nearZeroVar(crash_raw)
+names(crash_raw[nzv])
+crash_raw <- crash_raw[, -nzv]
+dim(crash_raw)
+```
+
+Here the research data is prepared and the response variable and predictor variables are selected.
+
+```{r cache=TRUE}
+#| cache: TRUE
+crash <- crash_raw %>%   
+  arrange(desc(AccidentDate)) %>%   
+  transmute(injuries = if_else(TotalInjMore24H30D > 0, "injuries", "none"),
+            AccidentDate,
+            Age,
+            Sex,
+            BeltUse,
+            Month,
+            Weekdays,     
+            Hour,
+            RoadType,
+            TotalVehicles,
+            Speed,
+            SpeedLimit,     
+            WeatherCondition,     
+            LightningCondition,     
+            SurfCondition,
+            AccTypeCollision) %>%   
+  na.omit()
+
+
+```
+
+The for loop in the code chunk below is very useful for identifying variables. With a better understanding of the values and distribution of variables, subsequent decisions for each variable, including selection, regrouping, or modification, will be easier.
+
+```{r cache=TRUE}
+#| cache: TRUE
+#df <- crash_raw
+df <- crash
+df[df == 998 | df == 999] <- NA
+
+for (col in names(df)) {
+  uniq_val <- unique(df[[col]])
+  n_uniq <- length(uniq_val)
+  n_miss <- sum(is.na(df[[col]]))
+  if (n_uniq < 100) {
+    print(paste("Column:", col, "- Number of unique values:", n_uniq))
+    print(paste("Column:", col, "- Number of missing values:", n_miss))
+    tbl <- table(df[[col]])
+    print(paste("Column:", col, "- Ordered Frequency Table:"))
+    print(tbl[order(tbl, decreasing = TRUE)])
+  } 
+}
+
+df <- df |> na.omit()
+crash <- df
+
+```
+
+## Plot
+
+@fig-CrashTrend shows the count of traffic crashes from 2019-2022 by injury and no injury crashes. The top line represents crashes with injuries, and the bottom line represents crashes without injuries.
+
+```{r cache=TRUE}
+#| cache: TRUE
+#| label: fig-CrashTrend
+#| fig-cap: "Comparison of injury and no injury crashes between 2019-2022"
+crash %>%
+  mutate(AccidentDate = floor_date(AccidentDate, unit = "week")) %>%
+  count(AccidentDate, injuries) %>%   
+  filter(AccidentDate != last(AccidentDate),
+         AccidentDate != first(AccidentDate)) %>%
+  ggplot(aes(AccidentDate, n, color = injuries)) +
+  geom_line(size = 1.5, alpha = 0.7) +
+  scale_y_continuous(limits = (c(0, NA))) +
+  labs(x = NULL, y = "Traffic crashes per week", color = "Injuries?") 
+```
+
+The sharp drop in the number of accidents in the graph is probably related to the Covid-19 pandemic. Therefore, it may be worth as a research topic, accidents and their influencing factors in this time period, compared with other normal periods.
+
+```{r cache=TRUE}
+#| cache: TRUE
+#| label: fig-CrashWeekday
+#| fig-cap: "Traffic accidents on weekdays by injury and non-injury"
+crash %>%   
+  mutate(AccidentDate = wday(AccidentDate, label = TRUE)) %>%   
+  count(AccidentDate, injuries) %>%   
+  group_by(injuries) %>%   
+  mutate(percent = n / sum(n)) %>%   
+  ungroup() %>%   
+  ggplot(aes(n, AccidentDate, fill = injuries)) +   
+  geom_col(position = "dodge", alpha = 0.8) +   
+  labs(x = "crashes", y = NULL, fill = "Injuries?")
+```
+
+## Build a model
+
+Tidymodel meta-package tools make the modding process easier, and that's why I recommend using them.
+
+```{r cache=TRUE}
+#| cache: TRUE
+set.seed(1212) 
+crash_split <- initial_split(crash, strata = injuries) 
+crash_train <- training(crash_split) 
+crash_test <- testing(crash_split)  
+
+set.seed(123) 
+crash_folds <- vfold_cv(crash_train, strata = injuries) 
+crash_folds 
+```
+
+```{r cache=TRUE}
+#| cache: TRUE
+
+names(crash)
+
+crash_rec <- recipe(injuries ~ ., data = crash_train) %>%
+  step_downsample(injuries)  
+
+bag_spec <- bag_tree(min_n = 10) %>%   
+  set_engine("rpart", times = 25) %>%   
+  set_mode("classification")  
+crash_wf <- workflow() %>%   
+  add_recipe(crash_rec) %>%   
+  add_model(bag_spec)  
+
+crash_wf 
+```
+
+```{r cache=TRUE}
+#| cache: TRUE
+doParallel::registerDoParallel() 
+crash_res <- fit_resamples(crash_wf,   
+                           crash_folds,   
+                           control = control_resamples(save_pred = TRUE)) 
+```
+
+```{r cache=TRUE}
+#| cache: TRUE
+collect_metrics(crash_res)
+```
+
+```{r cache=TRUE}
+#| cache: TRUE
+crash_fit <- last_fit(crash_wf, crash_split) 
+collect_metrics(crash_fit) 
+```
+
+@fig-VarImp shows a variable importance plot. The variable `AccidentDate` has the highest variable importance.
+
+```{r cache=TRUE}
+#| cache: TRUE
+#| label: fig-VarImp
+#| fig-cap: "The importance of predictor variables to describe the severity of accidents"
+crash_imp <- crash_fit$.workflow[[1]] %>%   
+  pull_workflow_fit()  
+crash_imp$fit$imp %>%   
+  slice_max(value, n = 10) %>%   
+  ggplot(aes(value, fct_reorder(term, value))) +   
+  geom_col(alpha = 0.8, fill = "midnightblue") +   
+  labs(x = "Variable importance score", y = NULL) 
+```
+
+@fig-ROC shows an ROC curve over a graph of 1-specificity vs. sensitivity.
+
+```{r cache=TRUE}
+#| cache: TRUE
+#| label: fig-ROC
+#| fig-cap: "ROC curve"
+collect_predictions(crash_fit) %>%   
+  roc_curve(injuries, .pred_injuries) %>%   
+  ggplot(aes(x = 1 - specificity, y = sensitivity)) +   
+  geom_line(size = 1.5, color = "midnightblue") +   
+  geom_abline(lty = 2, alpha = 0.5,     color = "gray50",     size = 1.2) +
+  coord_equal() 
+```
+
+I think the results for the initial modeling are good and promising.
